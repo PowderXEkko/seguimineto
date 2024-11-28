@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareTech</title>
+    <style>
+        /* Estilo general */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white; /* Fondo blanco */
+            color: black; /* Texto negro */
+        }
+
+        /* Encabezado */
+        header {
+            background: black; /* Fondo negro */
+            color: white; /* Texto blanco */
+            padding: 1rem;
+            display: flex; /* Flexbox para alinear elementos horizontalmente */
+            align-items: center; /* Centrar elementos verticalmente */
+        }
+
+        /* Logo */
+        #logo {
+            width: 200px;
+            height: 200px;
+            background-color: white; /* Fondo blanco */
+            border-radius: 5px;
+            margin-right: 1rem; /* Espacio entre el logo y el texto del encabezado */
+        }
+
+        /* Título y descripción */
+        .header-text {
+            flex: 1; /* Permite que el texto ocupe el resto del espacio disponible */
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Navegación */
+        nav {
+            background: black; /* Fondo negro */
+            color: white; /* Texto blanco */
+            text-align: center;
+            padding: 0.5rem 0;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contenido principal */
+        main {
+            padding: 20px;
+        }
+
+        /* Pie de página */
+        footer {
+            background: black; /* Fondo negro */
+            color: white; /* Texto blanco */
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        /* Secciones */
+        section {
+            display: none; /* Oculta todas las secciones inicialmente */
+        }
+
+        section.active {
+            display: block; /* Muestra solo la sección activa */
+        }
+
+        h2, h3 {
+            color: black; /* Títulos en negro */
+        }
+
+        ul, ol {
+            margin-left: 20px;
+        }
+
+        @media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #logo {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 1rem;
+    }
+
+    .header-text h1 {
+        font-size: 1.5rem;
+    }
+
+    .header-text p {
+        font-size: 0.9rem;
+    }
+
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
+
+    article {
+        width: 90%;
+        padding: 15px;
+    }
+        }
+
+    </style>
+    <script>
+        // Función para mostrar la sección seleccionada
+        function showSection(sectionId) {
+            // Oculta todas las secciones
+            const sections = document.querySelectorAll("section");
+            sections.forEach(section => section.classList.remove("active"));
+    
+            // Muestra la sección seleccionada
+            const selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.classList.add("active");
+            }
+        }
+    
+        // Muestra la primera sección al cargar la página
+        document.addEventListener("DOMContentLoaded", () => {
+            showSection("introduccion");
+        });
+    </script>
+    
+</head>
+<body>
+
+<header>
+    <img id="logo" src="logo.png" alt="Logo de CareTech">
+    <div class="header-text">
+        <h1>CareTech</h1>
+        <p>Soluciones confiables en mantenimiento de equipos de cómputo</p>
+    </div>
+</header>
+
+<nav>
+    <a onclick="showSection('contacto')">Contacto</a>
+    <a onclick="showSection('organigrama')">Organigrama</a>
+    <a onclick="showSection('introduccion')">Introducción</a>
+    <a href="blog.html">Blog</a>
+    <a onclick="showSection('marco-teorico')">Marco Teórico</a>
+    <a onclick="showSection('caso-practico')">Caso Práctico</a>
+    <a onclick="showSection('conclusiones')">Conclusiones</a>
+</nav>
+
+<main>
+    <section id="contacto">
+    <h2>Nuestro email:</h2>
+    <p><a href="mailto:itqCareTech@gmail.com">itqCareTech@gmail.com</a></p>
+    <h2>Formulario de Contacto:</h2>
+    <form action="process_form.php" method="post">
+        <label for="name">Nombre:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Correo electrónico:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="message">Mensaje:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+
+        <input type="submit" value="Enviar">
+    </form>
+    </section>
+
+    <section id="organigrama">
+        <h1>Organigrama</h1><br>
+        <a href="Organigrama.jpg">Haga click aquí para ver</a>
+        <ul>
+            <li><strong>Director General:</strong></li>
+            <a href="ARIADNA.jpg">Paola Ariadna Hare Bautista</a><br><br>
+            <li><strong>Administración:</strong></li>
+            <a href="SEBSATIAN.jpg">Sebastián Nieto Meza</a><br><br>
+            <li><strong>Marketing:</strong></li>
+            <a href="Naim.jpg">Naim Vega Ledesma</a><br><br>
+            <li><strong>Técnico en Reparación:</strong></li>
+            <a href="Víctor.jpg">Víctor Zuñiga Ramos</a><br><br>
+            <li><strong>Técnico en Reparación:</strong></li>
+            <a href="GABRIEL.jpg">Christian Gabriel Valdéz Mercado</a><br><br>
+        </ul>
+    </section>
+    
+    <section id="introduccion" class="active">
+        <h2>Introducción</h2>
+        <p>En un mundo altamente dependiente de la tecnología, el mantenimiento de equipos de cómputo se ha convertido en un servicio esencial para garantizar la continuidad operativa de las pequeñas empresas. Este documento presenta la simulación del diseño organizacional de CareTech, una microempresa dedicada a ofrecer soluciones de mantenimiento preventivo y correctivo para equipos de cómputo, atendiendo las necesidades específicas de este sector.</p><br>
+        <p>El objetivo de este proyecto es analizar y estructurar el diseño organizacional de CareTech, simulando las fases del proceso productivo que abarcan desde la recepción de solicitudes hasta el seguimiento post-servicio. Este ejercicio permite identificar los elementos clave que definen a una microempresa y comprender cómo su diseño organizacional influye en la prestación de servicios eficientes y de alta calidad.</p><br>
+        <p>La importancia de este proyecto radica en demostrar cómo una estructura organizacional bien definida puede optimizar los procesos internos y contribuir al éxito de una microempresa en un entorno competitivo. Asimismo, se busca destacar el papel del mantenimiento de equipos de cómputo como un factor clave para la productividad y sostenibilidad de las pequeñas empresas.</p><br>
+        <p>Este análisis teórico y práctico permitirá desarrollar competencias clave como el trabajo en equipo, la resolución de problemas y la comunicación efectiva, integrando conocimientos relevantes para la gestión y operación de una microempresa tecnológica.</p><br>
+        <div style="text-align:center; margin-top:20px;">
+            <img src="https://centrodereparacioncompusystem.com/wp-content/uploads/2020/07/tips-mantenimiento-a-equipo-de-computo.jpg" alt="Mantenimiento de equipos de cómputo" style="width:100%; max-width:600px; border-radius:8px;">
+        </div>
+    </section>
+    
+    <section id="marco-teorico">
+        <h2>Marco Teórico</h2><br>
+        <p>En el desarrollo de una microempresa como CareTech, dedicada al mantenimiento de equipos de cómputo, es fundamental comprender conceptos clave como el diseño organizacional, las características de una microempresa, las fases del proceso productivo y la relevancia del mantenimiento tecnológico. Estos elementos proporcionan la base teórica para estructurar y operar eficazmente una empresa de este tipo.</p><br>
+        
+        <h3>Diseño Organizacional</h3>
+        <p>El diseño organizacional se define como el proceso mediante el cual se estructura una organización para alcanzar sus metas de manera eficiente. Este diseño implica decisiones relacionadas con la división del trabajo, la asignación de responsabilidades, los niveles de autoridad y los flujos de comunicación. Existen diversos tipos de estructuras organizacionales; para este proyecto nos apoyaremos en la estructura más simple a nuestro parecer.</p><br>
+        <p>La estructura funcional agrupa actividades según áreas o funciones, lo que ayuda al trabajo en conjunto y a un conocimiento amplio para todos los involucrados en la empresa. La estructura funcional es ideal debido a su simplicidad, bajo costo y facilidad para coordinar tareas en un equipo pequeño.</p><br>
+        
+        <h3>Elementos Clave del Diseño Organizacional</h3>
+        <p>El diseño organizacional de una empresa depende de varios elementos esenciales que permiten estructurar y coordinar sus actividades:</p><br>
+        <ol>
+            <li><strong>Estructura organizacional:</strong> Define cómo se distribuyen las funciones, roles y jerarquías dentro de la empresa.</li><br>
+            <li><strong>Cultura organizacional:</strong> Conjunto de valores, normas y comportamientos que guían las acciones de los empleados.</li><br>
+            <li><strong>Flujos de trabajo y comunicación:</strong> Procesos mediante los cuales la información circula dentro de la organización.</li><br>
+            <li><strong>Recursos tecnológicos:</strong> Herramientas necesarias para cumplir con las tareas específicas del negocio.</li><br>
+            <li><strong>Tamaño de la empresa:</strong> Influye directamente en la complejidad y formalidad de su diseño organizacional.</li><br>
+        </ol>
+        <p>En el caso de CareTech, estos elementos permiten estructurar un modelo eficiente que optimiza recursos limitados y garantiza la calidad en el servicio al cliente, poniéndola como una microempresa confiable y profesional en su sector.</p><br>
+        
+        <h3>Microempresa</h3>
+        <p>La Secretaría de Economía de México define a una microempresa como una organización con hasta 10 empleados y niveles de ingresos limitados dependiendo del sector al que pertenece. Estas empresas son pilares fundamentales de la economía nacional, ya que representan más del 95% del total de negocios en México.</p><br>
+        
+        <h3>Proceso Productivo</h3>
+        <p>El proceso productivo es el conjunto de actividades organizadas para transformar insumos en productos o servicios que satisfacen las necesidades del cliente. Este proceso puede variar según la naturaleza del negocio, pero en general, incluye las siguientes fases:</p><br>
+        <ol>
+            <li><strong>Recepción de insumos o solicitudes:</strong> Primera interacción con el cliente para identificar sus necesidades.</li><br>
+            <li><strong>Producción o prestación del servicio:</strong> Ejecución de las actividades necesarias para cumplir con lo solicitado.</li><br>
+            <li><strong>Control de calidad:</strong> Verificación de que el servicio cumple con los estándares establecidos.</li><br>
+            <li><strong>Entrega:</strong> Culminación del servicio con el cliente.</li><br>
+            <li><strong>Seguimiento:</strong> Evaluación de la satisfacción del cliente para mejorar el servicio.</li>
+        </ol>
+        <p>En CareTech, el proceso productivo se centra en ofrecer soluciones tecnológicas rápidas y efectivas, lo que incluye diagnóstico, mantenimiento preventivo y correctivo, así como un seguimiento personalizado para garantizar la satisfacción del cliente.</p><br>
+        
+        <h3>Mantenimiento de Equipos de Cómputo</h3>
+        <p>El mantenimiento de equipos de cómputo es un servicio esencial para garantizar el buen funcionamiento del hardware y software de las empresas. Este puede clasificarse en:</p>
+        <ul>
+            <li><strong>Mantenimiento preventivo:</strong> Actividades periódicas como limpieza, actualizaciones y optimización de sistemas, con el objetivo de prevenir fallas.</li><br>
+            <li><strong>Mantenimiento correctivo:</strong> Reparaciones realizadas tras identificar fallos o problemas específicos en los equipos.</li>
+        </ul>
+        <p>Este servicio es especialmente relevante para pequeñas empresas, ya que asegura la continuidad operativa, evita interrupciones costosas y extiende la vida útil de los equipos. Para CareTech, este enfoque no solo representa una propuesta de valor para sus clientes, sino también una oportunidad para posicionarse como un aliado tecnológico confiable.</p><br>
+    </section>       
+
+    <section id="caso-practico">
+        <h2>Caso Práctico</h2>
+        <p>CareTech es una microempresa ficticia dedicada al mantenimiento preventivo y correctivo de equipos de cómputo, orientada a pequeñas empresas que buscan soluciones tecnológicas confiables y accesibles. Este caso práctico desarrolla los aspectos fundamentales de su diseño organizacional y proceso productivo, incorporando contenidos de su página web para ilustrar su propuesta de valor.</p>
+        
+        <h3>Visión y Misión</h3>
+        <ul>
+            <li><strong>Visión:</strong> Ser la microempresa líder en mantenimiento de equipos de cómputo para pequeñas empresas, reconocida por su rapidez, calidad y atención personalizada en el mercado local.</li><br>
+            <li><strong>Misión:</strong> Proveer servicios confiables y accesibles en mantenimiento preventivo y correctivo de equipos de cómputo, asegurando la continuidad operativa de nuestros clientes con soluciones rápidas y efectivas.</li>
+        </ul>
+        
+        <h3>Valores</h3>
+        <ul>
+            <li><strong>Responsabilidad:</strong> Cumplimos con los tiempos y la calidad prometidos a nuestros clientes.</li><br>
+            <li><strong>Innovación:</strong> Incorporamos nuevas tecnologías y técnicas en nuestros servicios.</li><br>
+            <li><strong>Calidad:</strong> Nos esforzamos por superar las expectativas de nuestros clientes en cada servicio.</li><br>
+            <li><strong>Compromiso:</strong> Nos dedicamos a proteger y mejorar los recursos tecnológicos de nuestros clientes.</li><br>
+        </ul>
+        
+        <h3>Estructura Organizacional</h3>
+        <p>CareTech opera con una estructura funcional básica debido a su tamaño y recursos limitados. Su organigrama es el siguiente:</p>
+        <ol>
+            <li><strong>Gerente General:</strong> Responsable de la dirección estratégica y administración general de la empresa.</li><br>
+            <li><strong>Técnico en Mantenimiento (2):</strong> Realizan el diagnóstico, mantenimiento preventivo y correctivo de los equipos.</li><br>
+            <li><strong>Asistente Administrativo:</strong> Maneja la agenda de servicios, la facturación y la atención al cliente.</li><br>
+            <li><strong>Marketing Digital (freelance):</strong> Desarrolla y gestiona el contenido de la página web y redes sociales.</li><br>
+        </ol>
+
+        <h3>Fases del Proceso Productivo</h3>
+        <p>El proceso productivo de CareTech se divide en cinco fases:</p><br>
+        <ol>
+            <li><strong>Recepción de Solicitudes:</strong>
+                <ul><br>
+                    <li>El cliente contacta a través de la página web, correo electrónico o llamada telefónica.</li><br>
+                    <li>Se registra la solicitud, el tipo de equipo y los problemas reportados.</li><br>
+                    <li>Se agenda una visita técnica o se recibe el equipo en las instalaciones de CareTech.</li><br>
+                </ul>
+            </li><br>
+            <li><strong>Diagnóstico Técnico:</strong>
+                <ul><br>
+                    <li>Evaluación inicial del equipo, identificando problemas de hardware o software.</li><br>
+                    <li>Elaboración de un presupuesto detallado.</li><br>
+                    <li>Confirmación del servicio por parte del cliente.</li><br>
+                </ul>
+            </li><br>
+            <li><strong>Mantenimiento Preventivo o Correctivo:</strong>
+                <ul><br>
+                    <li><strong>Preventivo:</strong> Limpieza interna y externa, actualización de software, pruebas de rendimiento.</li><br>
+                    <li><strong>Correctivo:</strong> Reparación o reemplazo de componentes, reinstalación de sistemas operativos, eliminación de virus.</li><br>
+                </ul>
+            </li><br>
+            <li><strong>Pruebas y Entrega:</strong>
+                <ul><br>
+                    <li>El equipo se somete a pruebas funcionales para garantizar que el problema ha sido resuelto.</li><br>
+                    <li>Se entrega el equipo al cliente con un reporte detallado del servicio realizado.</li><br>
+                </ul>
+            </li><br>
+            <li><strong>Seguimiento y Soporte:</strong>
+                <ul><br>
+                    <li>Se realiza un seguimiento para medir la satisfacción del cliente.</li><br>
+                    <li>Se ofrecen recomendaciones para el mantenimiento periódico y servicios futuros.</li><br>
+                </ul>
+            </li>
+        </ol>
+    </section>    
+
+    <section id="conclusiones">
+        <h2>Competencias Desarrolladas</h2>
+        <ul>
+            <li><strong>Trabajo en equipo:</strong>
+                <p>Colaboración efectiva entre los miembros para dividir tareas, compartir ideas y alcanzar los objetivos del proyecto.</p>
+            </li><br>
+            <li><strong>Planificación y organización:</strong>
+                <p>Capacidad para estructurar un proyecto complejo, definiendo etapas clave como el marco teórico, el caso práctico y el diseño del contenido de la página web.</p>
+            </li><br>
+            <li><strong>Análisis crítico y resolución de problemas:</strong>
+                <p>Identificación de desafíos en el diseño organizacional y creación de soluciones adaptadas a las necesidades específicas de una microempresa.</p>
+            </li><br>
+            <li><strong>Comunicación efectiva:</strong>
+                <p>Redacción clara y coherente del documento final, así como la exposición de ideas de manera estructurada y profesional.</p>
+            </li><br>
+            <li><strong>Uso de herramientas tecnológicas:</strong>
+                <p>Desarrollo de habilidades en el diseño conceptual de contenidos digitales (página web) y simulación de procesos organizacionales.</p>
+            </li><br>
+            <li><strong>Adaptabilidad:</strong>
+                <p>Aplicación de conocimientos teóricos a un caso práctico, ajustando los conceptos a las limitaciones y características de una microempresa real.</p>
+            </li><br>
+            <li><strong>Gestión del tiempo:</strong>
+                <p>Cumplimiento de los plazos establecidos para la entrega del proyecto, demostrando habilidades de priorización y organización.</p>
+            </li>
+
+        </ul>
+        <h2>Conclusiones</h2>
+        <p>El desarrollo de este proyecto permitió analizar el diseño organizacional y el proceso productivo de una microempresa como CareTech, dedicada al mantenimiento de equipos de cómputo. A través de esta simulación, se identificaron los elementos clave para garantizar la eficiencia operativa y la satisfacción del cliente en una empresa de pequeño tamaño.</p><br>
+        <p>Se concluye que:</p>
+        <ol>
+            <li>Una estructura funcional básica es ideal para una microempresa como CareTech, ya que permite una organización clara de roles y responsabilidades.</li><br>
+            <li>El mantenimiento preventivo y correctivo es un servicio esencial para pequeñas empresas, ya que asegura la continuidad de sus operaciones tecnológicas.</li><br>
+            <li>La implementación de un proceso productivo bien definido, desde la recepción de solicitudes hasta el seguimiento post-servicio, contribuye a la calidad y fidelización del cliente.</li><br>
+            <li>La creación de una página web funcional y accesible refuerza la imagen de profesionalismo de la empresa, facilitando la captación de clientes y la comunicación efectiva.</li>
+        </ol>
+        <p>Este ejercicio demostró la importancia de un diseño organizacional eficiente, alineado con los objetivos estratégicos de la empresa, y cómo este puede ser implementado con recursos limitados para generar un impacto positivo en el mercado.</p>
+    </section>
+    
+</main>
+
+<footer>
+    <p>&copy; 2024 Equipo CareTech. Página estudiantil sin fines de lucro.</p>
+</footer>
+
+</body>
+</html>
